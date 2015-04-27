@@ -1,0 +1,26 @@
+<?php
+
+//echo "<html>\n<body>\n";
+
+if(isset($_GET["op"]) && isset($_GET["t1"]) && isset($_GET["t2"]) ) {
+  $op = $_GET['op'];
+  $t1 = $_GET['t1'];
+  $t2 = $_GET['t2'];
+
+  if($op === "plus")
+    echo ($t1 + $t2); 
+  else if($op === "minus")
+    echo ($t1 - $t2); 
+  else if($op === "times")
+    echo ($t1 * $t2); 
+  else if($op === "divide" && abs($t2) > 1e-10)
+    echo ($t1 / $t2); 
+  else
+    echo 'expr_get.php?op=(plus|minus|times|divide)?t1=(float)?t2=(float)'; 
+
+} else
+  echo 'expr_get.php?op=(plus|minus|times|divide)?t1=(float)?t2=(float)'; 
+
+echo "\n";
+?>
+

@@ -1,0 +1,26 @@
+<?php
+
+//echo "<html>\n<body>\n";
+
+if(isset($_POST["op"]) && isset($_POST["t1"]) && isset($_POST["t2"]) ) {
+  $op = $_POST['op'];
+  $t1 = $_POST['t1'];
+  $t2 = $_POST['t2'];
+
+  if($op === "plus")
+    echo ($t1 + $t2); 
+  else if($op === "minus")
+    echo ($t1 - $t2); 
+  else if($op === "times")
+    echo ($t1 * $t2); 
+  else if($op === "divide" && abs($t2) > 1e-10)
+    echo ($t1 / $t2); 
+  else
+    echo 'expr_post.php?op=(plus|minus|times|divide)?t1=(float)?t2=(float)'; 
+
+} else
+  echo 'expr_post.php?op=(plus|minus|times|divide)?t1=(float)?t2=(float)'; 
+
+echo "\n";
+?>
+
